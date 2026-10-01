@@ -1,0 +1,9 @@
+# Operator Wi-Fi credentials for the management link (never commit)
+secrets.h
+
+# Tooling / installers
+*.tar.gz
+*.AppImage
+
+# Python bytecode
+__pycache__/
