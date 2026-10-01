@@ -39,6 +39,10 @@ box). Plug the board directly into the laptop, not a dock. Read serial non-inter
 
 ## Status
 
-v1 builds clean (2026-09-30). Not yet verified on hardware. Next: fill `secrets.h`, `make honeypot`,
-confirm the dashboard, decoy association, and probe capture. Ideas: DHCP hostname/option-55 fingerprinting,
-deauth-frame detection (rogue-AP/attack sensing), CSV export, per-device detail view.
+v1 verified on hardware 2026-09-30: dashboard, rotating decoy AP, passive probe capture (directed + wildcard),
+and full association path - a test iPhone with a randomized MAC was still fingerprinted as iOS via the captive
+`captive.apple.com` hit + `CaptiveNetworkSupport` User-Agent, with its DHCP IP and RSSI. Fixed in testing:
+operator/captive routing keys off the client subnet (not destination); decoy-SSID changes apply from loop(),
+not the httpd task (a WiFi.softAP() call on the web task caused a brief outage).
+Ideas next: DHCP hostname/option-55 fingerprinting, deauth-frame detection (rogue-AP/attack sensing),
+CSV export, per-device detail view.
